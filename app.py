@@ -27,6 +27,70 @@ import base64
 
 st.header("LangChain 🦜🔗 Documentation - Helper ChatBot")
 
+# profile_image = Image.open("langchain background removed.png")
+
+# st.sidebar.image(profile_image, width=200)
+
+
+st.markdown(
+    """
+    <style>
+        [data-testid=stSidebar] [data-testid=stImage]{
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+    </style>
+    """, unsafe_allow_html=True
+)
+
+with st.sidebar:
+    st.image("langchain background removed.png", width = 200)
+
+st.sidebar.markdown(
+"""
+    # LangChain Helper Bot 🤖
+
+    Welcome to the LangChain Helper Bot!
+
+    **What does it offer ?**
+
+    🚀 Easy scraping of LangChain documentation.
+    
+    📚 Instead of going through tedious LangChain documentation, just submit your query here about any LangChain topic, and you'll get the answer!
+
+    ---  
+
+    **How to use ?**
+
+    Just type your LangChain-related query in the input box on the main page, and the bot will fetch precise information for you.
+    """
+)
+ 
+
+with st.sidebar:
+
+        st.caption(
+                """The official documentation of langchain can be found at  
+                https://python.langchain.com/docs/get_started
+                """
+            )
+
+        st.markdown("---")
+        st.markdown(
+            '<h6>Made in &nbsp<img src="https://streamlit.io/images/brand/streamlit-mark-color.png" alt="Streamlit logo" height="16">&nbsp by <a href="https://www.linkedin.com/in/anujmaha/">@anujmaha</a></h6>',
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            '📧 : anujsmahajan1998@gmail.com',
+        )
+        st.markdown(
+            '<div style="margin-top: 0.75em;"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a></div>',
+            unsafe_allow_html=True,
+        )
+
 if "user_prompt_history" not in st.session_state:
     st.session_state["user_prompt_history"] = []
 
@@ -48,7 +112,7 @@ def create_sources_string(source_urls: Set[str]) -> str:
     return sources_string
 
 
-prompt = st.text_input("Prompt", placeholder="Enter your message here...")
+prompt = st.text_input("Prompt", placeholder="Enter your Langchain related query here... (eg, what is ConversationalRetrievalChain ?)")
 
 
 if prompt:
